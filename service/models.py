@@ -141,8 +141,8 @@ class Product(db.Model):
                     + str(type(data["available"]))
                 )
             self.category = getattr(Category, data["category"])  # create enum from string
-        except AttributeError as error:
-            raise DataValidationError("Invalid attribute: " + error.args[0]) from error
+        # except AttributeError as error:
+        #     raise DataValidationError("Invalid attribute: " + error.args[0]) from error
         except KeyError as error:
             raise DataValidationError("Invalid product: missing " + error.args[0]) from error
         except TypeError as error:
